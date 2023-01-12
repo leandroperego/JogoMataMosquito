@@ -18,6 +18,7 @@ body{
     background-image: url("imagens/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
 }
 
 section#lifesAndTime{
@@ -44,4 +45,25 @@ section#lifes{
 
 section#time{
     justify-content: center;
+}
+
+button{
+    width: 30%;
+    height: 5rem;
+    border-radius: 15px;
+    font-size: 2rem;
+}
+
+button:hover{
+    border: 3px solid;
+}
+
+@media (max-width: 450px){
+    img[src *= "vitoria"], img[src *= "game_over"], img[src *= "game"]{
+        width: 80%;
+    }
+
+    button{
+        width: 40%;
+    }
 }

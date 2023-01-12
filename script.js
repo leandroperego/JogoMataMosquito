@@ -115,27 +115,44 @@ function removerLifes(){
 }
 
 function criarImagemExibicao(path){
-    let gameoverimg = document.createElement("img");
-        gameoverimg.src = path;
-        gameoverimg.style.display = "block";
-        gameoverimg.style.height = `70%`;
-        gameoverimg.style.margin = "0 auto";
+    let imagem = document.createElement("img");
+        imagem.src = path;
+        imagem.style.display = "block";
+        imagem.style.height = `70%`;
+        imagem.style.margin = "0 auto";
 
-    return gameoverimg;
+    return imagem;
 }
 
+function exibirTela(status){
+    switch (status){
+        case "gameover":
+            document.body.appendChild(criarImagemExibicao("/imagens/game_over.png"));
+            break;
+        case "vitoria":
+            document.body.appendChild(criarImagemExibicao("/imagens/vitoria.png"));
+            break;
+    }
+    
+    limparMosquito();
+    pararJogo();
+    criarBotao();
+}
+
+function criarBotao(){
+    let button = document.createElement("button");
+    button.textContent = "Ir para o inicio";
+    button.addEventListener('click', () => {window.location.href = "index.html"});
+    document.body.appendChild(button);
+}
 
 iniciarJogo();
 
 let verificarJogo = setInterval(function(){
     if(gameOver()){
-        document.body.appendChild(criarImagemExibicao("/imagens/game_over.png"));
-        limparMosquito();
-        pararJogo();
+        exibirTela("gameover");
 
     } else if(venceu()){
-        document.body.appendChild(criarImagemExibicao("/imagens/vitoria.png"));
-        limparMosquito();
-        pararJogo();
+        exibirTela("vitoria");
     }
 }, 500);
