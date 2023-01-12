@@ -2,7 +2,7 @@ let alturaTelaVidas = document.querySelector("#lifesAndTime").clientHeight;
 let limiteTelaX = window.innerWidth;
 let limiteTelaY = window.innerHeight - alturaTelaVidas;
 
-let milisegundos = 1500;
+let milisegundos = 1000;
 
 window.addEventListener("resize", function (){
     limiteTelaX = window.innerWidth;
@@ -12,7 +12,7 @@ window.addEventListener("resize", function (){
 let spanTempo = document.querySelector("span#tempo");
 let lifesImg = document.querySelectorAll("#lifes img");
 
-let tempoDeJogo = 15;
+let tempoDeJogo = 20;
 spanTempo.textContent = tempoDeJogo;
 let setIntervalTempoJogo;
 let intervalExibirMosquito;
