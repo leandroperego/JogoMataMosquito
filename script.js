@@ -76,7 +76,7 @@ function exibirMosquito(){
 
     let imgMosquito = document.createElement("img");
     imgMosquito.id = "mosquito";
-    imgMosquito.src = "/imagens/mosca.png";
+    imgMosquito.src = "../imagens/mosca.png";
     imgMosquito.style.width = tamanhoMosquitoInteger + "px";
     imgMosquito.style.position = "absolute";
     
@@ -108,7 +108,7 @@ function sortearNumero(limite){
 function removerLifes(){
     for (var img of lifesImg){
         if (img.src.includes("coracao_cheio.png")){
-            img.src = "/imagens/coracao_vazio.png";
+            img.src = "../imagens/coracao_vazio.png";
             break;
         }
     }
@@ -129,12 +129,12 @@ iniciarJogo();
 
 let verificarJogo = setInterval(function(){
     if(gameOver()){
-        document.body.appendChild(criarImagemExibicao("/imagens/game_over.png"));
+        document.body.appendChild(criarImagemExibicao("../imagens/game_over.png"));
         limparMosquito();
         pararJogo();
 
     } else if(venceu()){
-        document.body.appendChild(criarImagemExibicao("/imagens/vitoria.png"));
+        document.body.appendChild(criarImagemExibicao("../imagens/vitoria.png"));
         limparMosquito();
         pararJogo();
     }
