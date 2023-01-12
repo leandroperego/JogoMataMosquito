@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 64.5%;
+}
+
+html{
+    cursor: url("imagens/mata_mosca.png") 30 30, auto;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/imagens/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section#lifesAndTime{
+    width: 25rem;
+    height: 10rem;
+    background-color: rgba(240, 240, 240, 0.8);
+    position: absolute;
+    left: 10px;
+    bottom: 0px;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+section#lifes, #time{
+    height: 100%;
+    display: flex;
+}
+
+section#lifes{
+    padding: 10px;
+    justify-content: space-around;
+}
+
+section#time{
+    justify-content: center;
+}
