@@ -2,7 +2,7 @@ let alturaTelaVidas = document.querySelector("#lifesAndTime").clientHeight;
 let limiteTelaX = window.innerWidth;
 let limiteTelaY = window.innerHeight - alturaTelaVidas;
 
-let milisegundos = 1000;
+let milisegundos = 900;
 
 window.addEventListener("resize", function (){
     limiteTelaX = window.innerWidth;
