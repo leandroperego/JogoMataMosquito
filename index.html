@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mata Mosquito - Game</title>
     <link rel="stylesheet" href="styleinicial.css">
+    
 </head>
 <body>
     <section>
@@ -20,5 +21,12 @@
             <input type="submit" value="Iniciar">
         </form>
     </section>
+    <script>
+        let nivelAnterior = window.location.href.slice(-1);
+        let listaOptions = document.querySelectorAll("option");
+
+        let optionSelecionado = listaOptions[nivelAnterior];
+        optionSelecionado.selected = true;
+    </script>
 </body>
 </html>

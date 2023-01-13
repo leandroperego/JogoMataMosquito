@@ -2,7 +2,7 @@ let alturaTelaVidas = document.querySelector("#lifesAndTime").clientHeight;
 let limiteTelaX = window.innerWidth;
 let limiteTelaY = window.innerHeight - alturaTelaVidas;
 
-let dificuldadeMilissegundos = 1000;
+let dificuldadeMilissegundos;
 
 window.addEventListener("resize", function (){
     limiteTelaX = window.innerWidth;
@@ -191,7 +191,7 @@ function exibirTela(status){
 function criarBotao(){
     let button = document.createElement("button");
     button.textContent = "Ir para o inicio";
-    button.addEventListener('click', () => {window.location.href = "index.html"});
+    button.addEventListener('click', () => {window.location.href = `index.html?${window.location.href.slice(-1)}`});
     document.body.appendChild(button);
 }
 
