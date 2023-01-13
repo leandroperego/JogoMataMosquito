@@ -2,7 +2,7 @@ let alturaTelaVidas = document.querySelector("#lifesAndTime").clientHeight;
 let limiteTelaX = window.innerWidth;
 let limiteTelaY = window.innerHeight - alturaTelaVidas;
 
-let milisegundos = 850;
+let milisegundos = 1000;
 
 window.addEventListener("resize", function (){
     limiteTelaX = window.innerWidth;
@@ -75,6 +75,7 @@ function exibirMosquito(){
     let mosquitoEsmagado = document.querySelector("#mosquitoEsmagado");
     if (mosquitoEsmagado){
         mosquitoEsmagado.remove();
+        imgMira.remove();
     }
 
     let tamanhoMosquitoInteger = 50;
@@ -95,7 +96,15 @@ function exibirMosquito(){
     imgMosquito.addEventListener(`click`, function(){
         imgMosquito.src = "imagens/mosca_esmagada.png";
         imgMosquito.id = "mosquitoEsmagado";
-        imgMosquito.style.width = "8rem";
+
+        let imgMira = document.createElement("img");
+        imgMira.src = "imagens/mira.png";
+        imgMira.style.width = "10rem";
+        imgMira.id = "imgMira";
+        document.body.appendChild(imgMira);
+        imgMira.style.position = "absolute";
+        imgMira.style.left = `calc(${posicaoX} - 2.5rem)`;
+        imgMira.style.top = `calc(${posicaoY} - 2.5rem)`;
     });
 }
 
