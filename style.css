@@ -47,15 +47,33 @@ section#time{
     justify-content: center;
 }
 
-button{
+button,
+input[type="submit"]{
     width: 30%;
     height: 5rem;
     border-radius: 15px;
     font-size: 2rem;
 }
 
-button:hover{
+button:hover,
+input[type="submit"]:hover{
     border: 3px solid;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+select{
+    height: 5rem;
+    border-radius: 15px;
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
 }
 
 @media (max-width: 450px){
@@ -63,7 +81,8 @@ button:hover{
         width: 80%;
     }
 
-    button{
+    button, 
+    input[type="submit"]{
         width: 40%;
     }
 }

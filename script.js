@@ -2,7 +2,7 @@ let alturaTelaVidas = document.querySelector("#lifesAndTime").clientHeight;
 let limiteTelaX = window.innerWidth;
 let limiteTelaY = window.innerHeight - alturaTelaVidas;
 
-let milisegundos = 1000;
+let dificuldadeMilissegundos = 1000;
 
 window.addEventListener("resize", function (){
     limiteTelaX = window.innerWidth;
@@ -16,6 +16,17 @@ let tempoDeJogo = 20;
 spanTempo.textContent = tempoDeJogo;
 let setIntervalTempoJogo;
 let intervalExibirMosquito;
+
+iniciarJogo();
+
+let verificarJogo = setInterval(function(){
+    if(gameOver()){
+        exibirTela("gameover");
+
+    } else if(venceu()){
+        exibirTela("vitoria");
+    }
+}, 500);
 
 //------------------------------------------------------------------
 function rodarTempo(){
@@ -61,9 +72,27 @@ function exibirGameOver(){
     console.log('game over');
 }
 
+function setarDificuldade(){
+    let hrefRecebido = window.location.href;
+    let dificuldade = hrefRecebido.slice(-1);
+    
+    switch (dificuldade){
+        case "1":
+            dificuldadeMilissegundos = 1500;
+            break;
+        case "2":
+            dificuldadeMilissegundos = 900;
+            break;
+        case "3":
+            dificuldadeMilissegundos = 700;
+            break;
+    }
+}
+
 function iniciarJogo(){
+    setarDificuldade();
     rodarTempo();
-    intervalExibirMosquito = setInterval(exibirMosquito, milisegundos);
+    intervalExibirMosquito = setInterval(exibirMosquito, dificuldadeMilissegundos);
 }
 
 function exibirMosquito(){
@@ -72,11 +101,7 @@ function exibirMosquito(){
         removerLifes();
     }
 
-    let mosquitoEsmagado = document.querySelector("#mosquitoEsmagado");
-    if (mosquitoEsmagado){
-        mosquitoEsmagado.remove();
-        imgMira.remove();
-    }
+    limparAlvosClicados();    
 
     let tamanhoMosquitoInteger = 50;
 
@@ -115,6 +140,14 @@ function limparMosquito(){
         return true;
     }
     return false;
+}
+
+function limparAlvosClicados(){
+    let mosquitoEsmagado = document.querySelector("#mosquitoEsmagado");
+    if (mosquitoEsmagado){
+        mosquitoEsmagado.remove();
+        imgMira.remove();
+    }
 }
 
 function sortearNumero(limite){
@@ -162,13 +195,3 @@ function criarBotao(){
     document.body.appendChild(button);
 }
 
-iniciarJogo();
-
-let verificarJogo = setInterval(function(){
-    if(gameOver()){
-        exibirTela("gameover");
-
-    } else if(venceu()){
-        exibirTela("vitoria");
-    }
-}, 500);

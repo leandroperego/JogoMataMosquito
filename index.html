@@ -10,8 +10,15 @@
 <body>
     <section>
         <img src="imagens/game.png" alt="game">
-        <button>Iniciar</button>
+        <form action="jogo.html">
+            <select name="nivel" id="nivel" required>
+                <option value="">--Selecione o nivel--</option>
+                <option value="1">Fácil</option>
+                <option value="2">Médio</option>
+                <option value="3">Dificil</option>
+            </select>
+            <input type="submit" value="Iniciar">
+        </form>
     </section>
-    <script src="script2.js"></script>
 </body>
 </html>
